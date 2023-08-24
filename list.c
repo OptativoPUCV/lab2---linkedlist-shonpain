@@ -50,7 +50,6 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-  if(list ==)
     return NULL;
 }
 
