@@ -19,3 +19,22 @@ list.c:54:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 93ff3c6
+Thu 24 Aug 2023 08:23:30 PM UTC: 
+ list.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘prevList’:
+list.c:53:13: error: expected expression before ‘)’ token
+   53 |   if(list ==)
+      |             ^
+list.c: In function ‘pushFront’:
+list.c:65:7: error: ‘List’ {aka ‘struct List’} has no member named ‘size’
+   65 |   list->size++;
+      |       ^~
+list.c: In function ‘prevList’:
+list.c:55:1: error: control reaches end of non-void function [-Werror=return-type]
+   55 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+1f6790e
