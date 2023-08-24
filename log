@@ -38,3 +38,17 @@ list.c:55:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 1f6790e
+Thu 24 Aug 2023 08:23:57 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘prevList’:
+list.c:53:13: error: expected expression before ‘)’ token
+   53 |   if(list ==)
+      |             ^
+list.c:55:1: error: control reaches end of non-void function [-Werror=return-type]
+   55 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+f4e9989
