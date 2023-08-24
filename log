@@ -1,0 +1,21 @@
+Thu 24 Aug 2023 08:16:11 PM UTC: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘createList’:
+list.c:33:7: error: statement with no effect [-Werror=unused-value]
+   33 |   list->head;
+      |   ~~~~^~~~~~
+list.c:34:7: error: ‘List’ {aka ‘struct List’} has no member named ‘size’
+   34 |   list->size=0;
+      |       ^~
+list.c: In function ‘prevList’:
+list.c:52:13: error: expected expression before ‘)’ token
+   52 |   if(list ==)
+      |             ^
+list.c:54:1: error: control reaches end of non-void function [-Werror=return-type]
+   54 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+93ff3c6

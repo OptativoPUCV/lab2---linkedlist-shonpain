@@ -29,7 +29,11 @@ Node * createNode(void * data) {
 }
 
 List * createList() {
-     return NULL;
+  List* list=(List*) malloc(sizeof(List));
+  list->head;
+  list->size=0;
+  list->current=NULL;
+     return list;
 }
 
 void * firstList(List * list) {
@@ -45,6 +49,7 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
+  if(list ==)
     return NULL;
 }
 
