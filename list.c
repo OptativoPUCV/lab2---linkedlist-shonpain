@@ -49,12 +49,31 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
+  if (list == NULL || list->tail == NULL) {
+    return NULL; // Lista vacía 
+  }
   list->current = list->tail;
-    return (list->tail->data);
+  return &(list->tail->data); // Retornar ultimo dato
 }
 
 void * prevList(List * list) {
-    return NULL;
+  if (list == NULL || list->current == NULL || list->current->next == NULL) {
+        return NULL; // Lista vacía, current no está establecido o current es el último nodo
+    }
+
+    Node* current = list->current;
+    Node* prev = NULL;
+    Node* temp = list->current;
+
+    // Encontrar el nodo anterior a current
+    while (temp->next != current) {
+        temp = temp->next;
+    }
+
+    prev = temp;
+
+    list->current = prev; // Actualizar current al nodo anterior
+    return &(prev->data); // Retornar un puntero al dato del nodo anterior
 }
 
 void pushFront(List * list, void * data) {
