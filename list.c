@@ -55,10 +55,7 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-  if (list == NULL || list->current == NULL || list->current->next == NULL) {
-        return NULL; // Lista vacía, current no está establecido o current es el último nodo
-    }
-
+  if (list == NULL || list->current == NULL || list->current->next == NULL)return NULL; // Lista vacía, current no está establecido o current es el último nodo
     Node* current = list->current;
     Node* prev = NULL;
     Node* temp = list->current;
@@ -67,9 +64,7 @@ void * prevList(List * list) {
     while (temp->next != current) {
         temp = temp->next;
     }
-
     prev = temp;
-
     list->current = prev; // Actualizar current al nodo anterior
     return (prev->data); // Retornar un puntero al dato del nodo anterior
 }
