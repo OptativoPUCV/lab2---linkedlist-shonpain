@@ -68,7 +68,7 @@ void * prevList(List * list) {
     }
 
     list->current = temp; // Actualizar current al nodo anterior
-    return &(temp->data); // Retornar un puntero al dato del nodo anterior
+    return (temp->data); // Retornar un puntero al dato del nodo anterior
 }
 
 void pushFront(List * list, void * data) {
