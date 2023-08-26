@@ -61,7 +61,7 @@ void * prevList(List * list) {
   Node* temp = list->tail;
 
     // Encontrar el nodo anterior a current
-  while (temp->next != current) {
+  while (temp->next != current && temp->next!= NULL) {
         temp = temp->next;
     }
 
