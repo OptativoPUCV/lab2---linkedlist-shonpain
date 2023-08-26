@@ -139,6 +139,7 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
   Node *n = list->current;
+  if (list->current == NULL)return NULL; // No hay nodo actual para eliminar
   if(list->current != NULL ){
 
     if (n->prev !=NULL)
@@ -161,6 +162,7 @@ void * popCurrent(List * list) {
   void *data = n->data;
   free(n);
   return data;
+
 
 }
 
