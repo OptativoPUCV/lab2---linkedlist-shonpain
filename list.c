@@ -76,21 +76,21 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-     Node *newNode = createNode(data);
-    if (newNode == NULL) {
+     Node *nuevoNodo = createNode(data);
+    if (nuevoNodo == NULL) {
         // Error al crear el nuevo nodo
         return;
     }
 
-    newNode->next = list->head; // El siguiente del nuevo nodo apunta al antiguo primer nodo
+    nuevoNodo->next = list->head; // El siguiente del nuevo nodo apunta al antiguo primer nodo
 
     if (list->head == NULL) {
         // Si la lista estaba vacía, tanto la cabeza como la cola apuntan al nuevo nodo
-        list->head = newNode;
-        list->tail = newNode;
+        list->head = nuevoNodo;
+        list->tail = nuevoNodo;
     } else {
         // Si la lista no estaba vacía, la cabeza ahora apunta al nuevo nodo
-        list->head = newNode;
+        list->head = nuevoNodo;
     }
 }
 
@@ -100,30 +100,25 @@ void pushBack(List * list, void * data) {
 }
 
 void pushCurrent(List * list, void * data) {
-    if (list->current == NULL) {
-        // Si current es NULL, no podemos agregar después de él
-        return;
-    }
-
-    Node *newNode = createNode(data);
-    if (newNode == NULL) {
+  if (list->current == NULL)return;
+  Node *nuevoNodo = createNode(data);
+    if (nuevoNodo == NULL) {
         // Error al crear el nuevo nodo
         return;
     }
-
-    newNode->next = list->current->next; // El siguiente del nuevo nodo apunta al siguiente del nodo actual
-    newNode->prev = list->current;       // El prev del nuevo nodo apunta al nodo actual
+    nuevoNodo->next = list->current->next; // El siguiente del nuevo nodo apunta al siguiente del nodo actual
+    nuevoNodo->prev = list->current;       // El prev del nuevo nodo apunta al nodo actual
 
     if (list->current->next != NULL) {
         // Si no es el último nodo, actualizamos el prev del siguiente nodo
-        list->current->next->prev = newNode;
+        list->current->next->prev = nuevoNodo;
     }
 
-    list->current->next = newNode; // El siguiente del nodo actual apunta al nuevo nodo
+    list->current->next = nuevoNodo; // El siguiente del nodo actual apunta al nuevo nodo
 
     if (list->tail == list->current) {
         // Si el nodo actual es el último nodo, actualizamos la cola
-        list->tail = newNode;
+        list->tail = nuevoNodo;
     }
 }
 
@@ -157,8 +152,6 @@ void * popCurrent(List * list) {
   void *data = n->data;
   free(n);
   return data;
-
-
 }
 
 void cleanList(List * list) {
