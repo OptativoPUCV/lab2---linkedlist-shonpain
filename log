@@ -260,3 +260,9 @@ Sat 26 Aug 2023 12:17:42 AM UTC:
  tests:  9|3
 total_score: 35/70
 d2ad21c
+Sat 26 Aug 2023 12:20:20 AM UTC: 
+ list.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+ tests:  10|2
+total_score: 45/70
+b8ad12a
