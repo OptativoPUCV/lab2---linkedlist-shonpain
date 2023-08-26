@@ -51,7 +51,7 @@ void * nextList(List * list) {
 void * lastList(List * list) {
   if (list == NULL || list->tail == NULL)return NULL;
   list->current = list->tail;
-  return (list->tail->data); // Retornar ultimo dato
+  return (list->tail->data); // Retorna ultimo dato
 }
 
 void * prevList(List * list) {
@@ -71,7 +71,7 @@ void * prevList(List * list) {
 
 void pushFront(List * list, void * data) {
   Node* n=createNode(data);
-  n->next =list->head;
+  n->data =list->;
   if(list->head){
     list->head->prev=n;
   }

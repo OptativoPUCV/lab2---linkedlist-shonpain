@@ -221,3 +221,13 @@ Fri 25 Aug 2023 05:41:24 AM UTC:
  tests:  6|4
 total_score: 25/70
 b9ee1d5
+Sat 26 Aug 2023 12:11:45 AM UTC: 
+ list.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushFront’:
+list.c:74:18: error: expected identifier before ‘;’ token
+   74 |   n->data =list->;
+      |                  ^
+Compilation failed
+3234972
