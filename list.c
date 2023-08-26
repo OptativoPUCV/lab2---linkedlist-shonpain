@@ -60,38 +60,31 @@ void * prevList(List * list) {
   Node* current = list->current;
   Node* temp = list->head;
 
-  // Encontrar el nodo anterior a current
   while (temp->next != current && temp->next != NULL) {
     temp = temp->next;
   }
 
   if (temp->next == NULL) {
-    // No se encontró el nodo anterior a current
     return NULL;
   }
 
-  list->current = temp; // Actualizar current al nodo anterior
-  return (temp->data); // Retornar un puntero al dato del nodo anterior
+  list->current = temp; 
+  return (temp->data); 
 
 }
 
 void pushFront(List * list, void * data) {
-     Node *nuevoNodo = createNode(data);
-    if (nuevoNodo == NULL) {
-        // Error al crear el nuevo nodo
-        return;
-    }
+  Node *nuevoNodo = createNode(data);
+  if (nuevoNodo == NULL)return;
 
-    nuevoNodo->next = list->head; // El siguiente del nuevo nodo apunta al antiguo primer nodo
-
-    if (list->head == NULL) {
-        // Si la lista estaba vacía, tanto la cabeza como la cola apuntan al nuevo nodo
-        list->head = nuevoNodo;
-        list->tail = nuevoNodo;
-    } else {
-        // Si la lista no estaba vacía, la cabeza ahora apunta al nuevo nodo
-        list->head = nuevoNodo;
-    }
+  nuevoNodo->next = list->head; 
+  if (list->head == NULL) {
+    list->head = nuevoNodo;
+    list->tail = nuevoNodo;
+  } 
+  else{
+    list->head = nuevoNodo;
+  }
 }
 
 void pushBack(List * list, void * data) {
