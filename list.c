@@ -55,7 +55,7 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-  if (list == NULL || list->current == NULL || list->current == list->head) return NULL; // Lista vacía, current no está establecido o current es el primer nodo
+  if (list == NULL || list->current == NULL || list->current == list->head) return NULL; // Lista vacía, no hay current o current es el primer nodo
 
   Node* current = list->current;
   Node* temp = list->head;
@@ -138,12 +138,9 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-    if (list->current == NULL) {
-        return NULL; // No hay nodo actual para eliminar
-    }
-
+    if (list->current == NULL)return NULL; // No hay nodo actual para eliminar
     Node* toDelete = list->current;
-    void* data = (void*)toDelete->data;
+    void* data = (void*)&toDelete->data;
 
     if (toDelete == list->head) {
         list->head = list->head->next;
@@ -161,7 +158,6 @@ void * popCurrent(List * list) {
     free(toDelete);
 
     return data;
-    return NULL;
 }
 
 void cleanList(List * list) {
