@@ -231,3 +231,14 @@ list.c:74:18: error: expected identifier before ‘;’ token
       |                  ^
 Compilation failed
 3234972
+Sat 26 Aug 2023 12:12:06 AM UTC: 
+ list.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushFront’:
+list.c:73:9: error: unused variable ‘n’ [-Werror=unused-variable]
+   73 |   Node* n=createNode(data);
+      |         ^
+cc1: all warnings being treated as errors
+Compilation failed
+7fb689b
