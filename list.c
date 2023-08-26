@@ -100,7 +100,7 @@ void pushBack(List * list, void * data) {
 }
 
 void pushCurrent(List * list, void * data) {
-      if (list->current == NULL) {
+    if (list->current == NULL) {
         // Si current es NULL, no podemos agregar después de él
         return;
     }
@@ -112,6 +112,13 @@ void pushCurrent(List * list, void * data) {
     }
 
     newNode->next = list->current->next; // El siguiente del nuevo nodo apunta al siguiente del nodo actual
+    newNode->prev = list->current;       // El prev del nuevo nodo apunta al nodo actual
+
+    if (list->current->next != NULL) {
+        // Si no es el último nodo, actualizamos el prev del siguiente nodo
+        list->current->next->prev = newNode;
+    }
+
     list->current->next = newNode; // El siguiente del nodo actual apunta al nuevo nodo
 
     if (list->tail == list->current) {
