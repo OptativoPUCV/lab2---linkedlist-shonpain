@@ -140,22 +140,17 @@ void * popBack(List * list) {
 void * popCurrent(List * list) {
   Node *n = list->current;
   if (list->current == NULL)return NULL; // No hay nodo actual para eliminar
-  if(list->current != NULL ){
-
-    if (n->prev !=NULL)
-    {
+  else{
+    if (n->prev !=NULL){
       n->prev->next = n -> next;
     }
-    else
-    {
+    else{
       list->head = n->next;
     }
-    if (n->next != NULL)
-    {
+    if(n->next != NULL){
       n->next->prev = n->prev;
     }
-    else
-    {
+    else{
       list->tail = n->prev;
     }
   }
