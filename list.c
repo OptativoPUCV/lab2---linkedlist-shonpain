@@ -100,6 +100,24 @@ void pushBack(List * list, void * data) {
 }
 
 void pushCurrent(List * list, void * data) {
+      if (list->current == NULL) {
+        // Si current es NULL, no podemos agregar después de él
+        return;
+    }
+
+    Node *newNode = createNode(data);
+    if (newNode == NULL) {
+        // Error al crear el nuevo nodo
+        return;
+    }
+
+    newNode->next = list->current->next; // El siguiente del nuevo nodo apunta al siguiente del nodo actual
+    list->current->next = newNode; // El siguiente del nodo actual apunta al nuevo nodo
+
+    if (list->tail == list->current) {
+        // Si el nodo actual es el último nodo, actualizamos la cola
+        list->tail = newNode;
+    }
 }
 
 void * popFront(List * list) {
