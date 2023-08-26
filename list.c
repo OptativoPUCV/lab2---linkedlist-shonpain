@@ -102,24 +102,19 @@ void pushBack(List * list, void * data) {
 void pushCurrent(List * list, void * data) {
   if (list->current == NULL)return;
   Node *nuevoNodo = createNode(data);
-    if (nuevoNodo == NULL) {
-        // Error al crear el nuevo nodo
-        return;
-    }
-    nuevoNodo->next = list->current->next; // El siguiente del nuevo nodo apunta al siguiente del nodo actual
-    nuevoNodo->prev = list->current;       // El prev del nuevo nodo apunta al nodo actual
+  if (nuevoNodo == NULL)return;
+  
+  nuevoNodo->next = list->current->next; 
+  nuevoNodo->prev = list->current;       
 
-    if (list->current->next != NULL) {
-        // Si no es el último nodo, actualizamos el prev del siguiente nodo
-        list->current->next->prev = nuevoNodo;
-    }
+  if (list->current->next != NULL) {
+    list->current->next->prev = nuevoNodo;
+  }
 
-    list->current->next = nuevoNodo; // El siguiente del nodo actual apunta al nuevo nodo
-
-    if (list->tail == list->current) {
-        // Si el nodo actual es el último nodo, actualizamos la cola
-        list->tail = nuevoNodo;
-    }
+  list->current->next = nuevoNodo;
+  if (list->tail == list->current) {
+    list->tail = nuevoNodo;
+  }
 }
 
 void * popFront(List * list) {
